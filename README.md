@@ -98,7 +98,7 @@ We follow the DDE protocol for this repository's development as well. Please sub
 
 </div>
 
-DDE (Documentation-Driven Engineering) 是一种面向 AI Agent 的确定性治理协议。
+DDE (Documentation-Driven Engineering) 是一种面向 AI Agent 的确定性治理协议。通过将传统的概率性 Agent 逻辑转化为基于文档（Layer 0-4）的确定性治理，DDE 将任何仓库转变为一个自我管理的研发平台。
 
 ## 🚀 快速上手 (最懒办法)
 
@@ -119,9 +119,34 @@ cd dde-agent-skills
 ```
 
 ### 2. 一键安装
+运行以下指令将核心技能同步到最常用的 Agent 目录：
 ```bash
 python3 tools/sync_skills.py
 ```
+
+## ✨ 核心特性
+
+- **🛡️ 确定性行为**: 禁止未标记的假设，所有写入必须经过授权。
+- **📚 五层架构**: 从项目宪章（Layer 0）到执行协议，层层递进。
+- **🔄 多环境同步**: 完美支持 Cursor, Windsurf, Trae, Claude Code 等主流 IDE。
+- **⚡ 第一性原理审查**: 内置审查机制，防止 LLM 幻觉和需求偏移。
+
+## 📖 技能字典
+
+| 技能名称 | 用途 |
+| :--- | :--- |
+| **`dde-bootstrap`** | 初始化器。强制执行 Layer 0-4 文档的一致性与项目对齐。 |
+| **`dde-code-guard`** | 守门员。实施 [PROPOSAL] -> [APPROVED] 代码修改生命周期。 |
+| **`dde-ext-verification-loop`** | 对复杂逻辑链进行持续验证。 |
+| **`dde-ext-brainstorm`** | 高层架构构思，无代码副作用。 |
+| **`dde-ext-search-first`** | 强制执行“先搜索，后写码”，防止重复造轮子。 |
+| **`dde-task-closer`** | 自动清理并验证已完成的功能点。 |
+| **`drawio-graph-builder`** | 将 Markdown 规范转换为可视化的 Draw.io 图表。 |
+
+## 📜 核心原则
+1. **禁止假设**: 未经标记的推断是被禁止的。
+2. **硬性关卡**: 未经显式 `[APPROVED]`，禁止进行任何文件写入。
+3. **唯一真理来源**: `/docs` 文件夹即法律。
 
 ---
 *Created by Documentation-Driven Engineering. Built for the next generation of AI Engineers.*
