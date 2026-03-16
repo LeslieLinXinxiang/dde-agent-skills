@@ -76,6 +76,33 @@ python3 tools/sync_skills.py
 | **`dde-task-closer`** | Autonomous cleanup and verification of completed features. |
 | **`drawio-graph-builder`** | Turns markdown specs into visual Draw.io diagrams. |
 
+## 💡 Usage Guide
+
+After deploying the skills to your local environment, you can interact with them in your AI IDE (Cursor, Windsurf, Claude Code).
+
+### 1. Triggering Skills
+- **Slash Commands**: Type `/` in the chat to see and select a specific skill (e.g., `/dde-bootstrap`).
+- **Natural Trigger**: Simply describe your intent (e.g., "I want to start a new feature").
+
+### 2. Workflow Scenarios
+
+#### **Scenario A: Brand New Project** 🆕
+If you are starting from an empty folder, the first step is **Governance Grounding**:
+1. **Wake up the Bootstrap**: Say *"I have a new project idea: [Your Idea]. Follow the DDE-Bootstrap protocol to interview me and generate Layer 0-4 documentation."*
+2. **The Interview**: The agent will ask you about goals, scope, and architecture. Answer them sequentially.
+3. **Artifact Generation**: The agent will automatically create the `docs/` folder and populate it with the "Laws" of your project.
+
+#### **Scenario B: Existing Project** 🏗️
+If you already have code but no DDE documentation:
+1. **Bridge the Gap**: Say *"This is an existing project. Scan the directory and current code, then use DDE-Bootstrap to bridge the missing Layer 0-4 documentation."*
+2. **Discovery**: The agent will analyze your project structure and suggest an architecture/spec that matches the code.
+3. **Consistency Check**: Once `docs/` are created, the agent will ensure the code follows the new specification.
+
+#### **Scenario C: Coding & Maintenance** 🛠️
+Once the docs are established, the `dde-code-guard` takes over:
+- Any request to modify code will trigger a **Proposal**.
+- You must reply with **`[APPROVED]`** before the agent writes any file.
+
 ## 🚀 Deployment Guide (Scenario-based)
 
 | Platform | Command |
@@ -142,6 +169,33 @@ python3 tools/sync_skills.py
 | **`dde-ext-search-first`** | 强制执行“先搜索，后写码”，防止重复造轮子。 |
 | **`dde-task-closer`** | 自动清理并验证已完成的功能点。 |
 | **`drawio-graph-builder`** | 将 Markdown 规范转换为可视化的 Draw.io 图表。 |
+
+## 💡 使用指南
+
+将技能部署到本地环境后，您可以在 AI IDE（如 Cursor, Windsurf, Claude Code）中通过以下方式使用：
+
+### 1. 触发技能
+- **斜杠指令**: 在聊天框输入 `/` 即可查看并选择特定技能（例如 `/dde-bootstrap`）。
+- **自然语言触发**: 直接描述您的意图（例如“我想开始开发一个新功能”）。
+
+### 2. 工作流场景
+
+#### **场景 A：全新的项目** 🆕
+如果您从一个空文件夹开始，第一步是 **建立治理基础**：
+1. **唤醒引导程序**: 输入 *“我有一个新项目的想法：[您的想法]。请遵循 DDE-Bootstrap 协议对我进行访谈，并生成 Layer 0-4 文档。”*
+2. **需求访谈**: Agent 会依次询问项目目标、范围、架构等问题，请按顺序回答。
+3. **自动生成规范**: Agent 会自动在根目录创建 `docs/` 文件夹并生成项目的所有“法律文档”。
+
+#### **场景 B：现有项目** 🏗️
+如果您已经有代码但没有 DDE 规范文档：
+1. **补全规范**: 输入 *“这是一个现有项目。请扫描目录和当前代码，然后使用 DDE-Bootstrap 补充缺失的 Layer 0-4 文档。”*
+2. **自动识别**: Agent 会通过扫描文件结构和代码逻辑，主动提炼出匹配的架构规范。
+3. **一致性检查**: 规范生成后，Agent 会确保后续的代码修改严格符合这些文档。
+
+#### **场景 C：日常开发与维护** 🛠️
+当规范文档建立后，`dde-code-guard` 将自动生效：
+- 任何修改代码的请求都会先生成一个 **提案 (Proposal)**。
+- 您必须回复 **`[APPROVED]`**，Agent 才会执行实际的文件写入。
 
 ## 📜 核心原则
 1. **禁止假设**: 未经标记的推断是被禁止的。
