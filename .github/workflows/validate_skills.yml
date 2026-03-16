@@ -1,0 +1,31 @@
+name: Skill Validation
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Validate SKILL.md Presence
+        run: |
+          errors=0
+          for dir in skills/*/; do
+            if [ -d "$dir" ]; then
+              if [ ! -f "${dir}SKILL.md" ]; then
+                echo "❌ Error: Missing SKILL.md in $dir"
+                errors=$((errors+1))
+              else
+                echo "✅ Validated: $dir"
+              fi
+            fi
+          done
+          if [ $errors -gt 0 ]; then
+            echo "Validation failed with $errors errors."
+            exit 1
+          fi
